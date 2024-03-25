@@ -4,8 +4,7 @@
   "description": "SVG and PNG renders of all countries' flags.",
   "scripts": {
     "build-pngs": "node scripts/build-pngs.js",
-    "build-100-250-1000-pngs": "node scripts/build-pngs.js 100: && node scripts/build-pngs.js 250: && node scripts/build-pngs.js 1000:"
-  },
+    "build-100-250-1000-pngs": "npm run build-pngs 100: && npm run build-pngs 250: && npm run build-pngs 1000:"  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hampusborgos/country-flags.git"
