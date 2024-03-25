@@ -50,7 +50,7 @@ function check_for_svgexport(callback) {
         }
         else {
             console.log("`svgexport` is not installed.")
-            console.log("Please run: npm install -g svgexport")
+            console.log("Please run: npm install")
             process.exit(1)
         }
     })
@@ -65,7 +65,7 @@ function check_for_imagemin(callback) {
         }
         else {
             console.log("`imagemin-cli` is not installed.")
-            console.log("Please run: npm install -g imagemin-cli")
+            console.log("Please run: npm install")
             process.exit(1)
         }
     })
