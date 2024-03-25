@@ -23,6 +23,7 @@
   },
   "homepage": "https://hampusborgos.github.io/country-flags/",
   "dependencies": {
-    "imagemin-cli": "^7.0.0"
+    "imagemin-cli": "^7.0.0",
+    "svgexport": "^0.4.2"
   }
 }
