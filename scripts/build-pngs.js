@@ -44,7 +44,7 @@ function check_arguments(callback) {
 function check_for_svgexport(callback) {
     // Check for presence of imagemin-cli and svgexport
     console.log("Checking if `svgexport` is available...")
-    exec('svgexport', function(error, stdout, stderr) {
+    exec('npx svgexport', function(error, stdout, stderr) {
         if (stdout.indexOf("Usage: svgexport") !== -1) {
             callback()
         }
@@ -59,7 +59,7 @@ function check_for_svgexport(callback) {
 function check_for_imagemin(callback) {
     // Check for presence of imagemin-cli and svgexport
     console.log("Checking if `imagemin-cli` is available...")
-    exec("imagemin --version", function(error, stdout, stderr) {
+    exec("npx imagemin --version", function(error, stdout, stderr) {
         if (!error) {
             callback()
         }
@@ -86,7 +86,7 @@ function get_all_svgs(callback) {
 
 function convert_and_compress_svg(path_to_svg, callback) {
     var path_to_tmp_png = path_to_svg.substring(0, path_to_svg.length - 4) + '.png'
-    var svgexport_command = "svgexport " + path_to_svg + " " + path_to_tmp_png + " pad " + get_output_dimensions()
+    var svgexport_command = "npx svgexport " + path_to_svg + " " + path_to_tmp_png + " pad " + get_output_dimensions()
     console.log(svgexport_command)
     exec(svgexport_command, (error, stdout, stderr) => {
         if (error) {
@@ -94,7 +94,7 @@ function convert_and_compress_svg(path_to_svg, callback) {
             process.exit(1)
         }
 
-        var image_min_command = "imagemin " + path_to_tmp_png + " --out-dir=" + get_output_directory()
+        var image_min_command = "npx imagemin " + path_to_tmp_png + " --out-dir=" + get_output_directory()
         console.log(image_min_command)
         exec(image_min_command, (error, stdout, stderr) => {
             // Always remove temp file
